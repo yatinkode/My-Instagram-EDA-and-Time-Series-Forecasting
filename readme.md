@@ -325,7 +325,7 @@ armafit                              #ARIMA(0,0,0) with zero mean
 
 tsdiag(armafit)
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/tsdiaglocal.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/tsdiaglocal.png)
 ```R
 #Now we will get the residual
 resi<-local_pred-fitted(armafit)
