@@ -225,7 +225,7 @@ total_timeser <- ts(monthlyseries$x,frequency=12,start=2014)
 
 plot(decompose(total_timeser))
 ```
-![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/decomposeseries.)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/decomposeseries.png)
 
 ### Smoothing the series
 ```R
