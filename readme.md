@@ -104,7 +104,7 @@ pie + theme_classic() + theme(axis.line = element_blank(),
                               axis.ticks = element_blank(),
                               plot.title = element_text(hjust = 0.5, color = "#666666"))
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/mediapie.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/mediapie.png)
 ```R
 #get monthly uploads
 uploads$upload_date<-as.Date(uploads$upload_date,"%Y-%m-%d")
@@ -225,7 +225,7 @@ total_timeser <- ts(monthlyseries$x,frequency=12,start=2014)
 
 plot(decompose(total_timeser))
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/decomposeseries.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/decomposeseries.)
 
 ### Smoothing the series
 ```R
@@ -257,7 +257,7 @@ for (i in seq(n-w+1, n)) {
 #Plot the smoothed time series
 lines(smoothedseries, col="red", lwd=2)
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/smoothseries.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/smoothseries.png)
 
 ## Using Classical Decomposition to forecast likes(usage in the future)
 ```R
@@ -294,7 +294,7 @@ legend("topleft", legend = c("Original","Smooth Series", "Regression Line"),
        col = c("black","red","blue"),
        title = "Line Types")
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/regressedplot.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/regressedplot.png)
 ```R
 #Now, let's look at the locally predictable series. We will remove the trend and seasonality from the series and get local series
 #We will model it as an ARMA series
@@ -302,7 +302,7 @@ legend("topleft", legend = c("Original","Smooth Series", "Regression Line"),
 local_pred <- timeser-global_pred
 plot(local_pred, col='red', type = "l",main="Local series of Insta Likes",xlab="Month",ylab="Likes")  # We have found out the local series
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/localseries.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/localseries.png)
 ```R
 #Lets verify whether local series is white noise or not
 
@@ -312,7 +312,7 @@ acf(local_pred,main="ACF plot for local series of Insta Likes")   #AR(0)
 #PACF test
 pacf(local_pred,main="PACF plot for local series of Insta Likes")    #MA(0)
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/acfpacflocal.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/acfpacflocal.png)
 
 ```R
 print(adf.test(local_pred,alternative = "stationary"))   #p-value = 0.01 Series is stationary since p-value below 0.05 in ADF test
@@ -332,7 +332,7 @@ resi<-local_pred-fitted(armafit)
 
 plot(resi,main="Residual series for Insta Likes")
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/residualseries.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/residualseries.png)
 
 ```R
 #Now we check whether the residual is white noise
@@ -397,7 +397,7 @@ legend("topleft", legend = c("Original","Predicted","Forecasted band"),
        col = c("black","red"),
        title = "Line Types")
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/forecastingclassical.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/forecastingclassical.png)
 
 ## Using Auto ARIMA to forecast likes(usage in the future)
 ```R
@@ -413,7 +413,7 @@ legend("topleft", legend = c("Original","Forecasted"),
        col = c("black","red"),
        title = "Line Types")
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/autoarimaseries.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/autoarimaseries.png)
 ```R
 resi_auto_arima <- timeser - fitted(autoarima)
 
@@ -456,4 +456,4 @@ legend("topleft", legend = c("Original","Predicted","Forecasted band"),
        col = c("black","red","grey"),
        title = "Line Types")
 ```
-![data](https://github.com/yatinkode/Personal-DS-and-ML-Projects/blob/master/Instagram%20Analysis/images/forecastautoarima.png)
+![data](https://github.com/yatinkode/My-Instagram-EDA-and-Time-Series-Forecasting/blob/master/images/forecastautoarima.png)
